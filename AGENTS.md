@@ -44,4 +44,4 @@
 | ESP32-S3 | `esp` channel（espup）+ `espflash` | USB-C |
 | nRF52840 | `stable` + `thumbv7em-none-eabihf` | UF2（Adafruit/nice!nano）或 probe-rs |
 
-两侧**不要**强行共用单一 Cargo workspace。当前主机尚未安装 `espup` / `espflash` / `probe-rs`（2026-11-11 检查）。
+两侧**不要**强行共用单一 Cargo workspace。本机工具版本与安装步骤见 [`docs/bringup/dev-machine-setup.md`](docs/bringup/dev-machine-setup.md)（2026-11-11：`espup` / `espflash` / `probe-rs` 尚未安装，由 Pete 安装）。

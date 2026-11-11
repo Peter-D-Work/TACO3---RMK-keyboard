@@ -15,7 +15,8 @@
 
 - Linear 项目：[Taco3](https://linear.app/peter-d-personal/project/taco3-6ae9bc996457)
 - 本地路径：`D:\TACO3`
-- 远程 Git：**尚未配置**（待 Pete 决定托管位置）
+- 远程 Git：GitHub [`Peter-D-Work/TACO3---RMK-keyboard`](https://github.com/Peter-D-Work/TACO3---RMK-keyboard)（`origin`）
+- 开发机工具链：[`docs/bringup/dev-machine-setup.md`](docs/bringup/dev-machine-setup.md)（2026-11-11：`espup` / `espflash` / `probe-rs` 尚未安装，由 Pete 决定是否安装）
 
 ## 固定约束
 
@@ -45,6 +46,7 @@
 
 1. 架构总览：[`docs/architecture/00-overview.md`](docs/architecture/00-overview.md)
 2. 技术选型表：[`docs/architecture/01-selection-matrix.md`](docs/architecture/01-selection-matrix.md)
-3. 引脚与电源：[`hardware/interfaces/pinmap-draft.md`](hardware/interfaces/pinmap-draft.md)
-4. BOM 候选：[`hardware/bom/bom-candidates.md`](hardware/bom/bom-candidates.md)
-5. 协作规则：[`AGENTS.md`](AGENTS.md)
+3. 开发机工具链：[`docs/bringup/dev-machine-setup.md`](docs/bringup/dev-machine-setup.md)
+4. 引脚与电源：[`hardware/interfaces/pinmap-draft.md`](hardware/interfaces/pinmap-draft.md)
+5. BOM 候选：[`hardware/bom/bom-candidates.md`](hardware/bom/bom-candidates.md)
+6. 协作规则：[`AGENTS.md`](AGENTS.md)
