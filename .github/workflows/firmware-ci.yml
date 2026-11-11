@@ -1,0 +1,22 @@
+# Placeholder: left/right firmware build CI.
+# Enable after firmware projects exist. Compile success must NOT be labeled as hardware pass.
+name: firmware-ci
+
+on:
+  push:
+    paths:
+      - 'firmware/**'
+      - '.github/workflows/firmware-ci.yml'
+  pull_request:
+    paths:
+      - 'firmware/**'
+
+jobs:
+  placeholder:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Firmware projects not initialized
+        run: |
+          echo "Left/right RMK projects are not yet scaffolded."
+          echo "CI will be expanded after M0 firmware skeleton issue completes."

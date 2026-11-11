@@ -1,0 +1,38 @@
+# Build
+**/target/
+**/.pio/
+**/build/
+*.uf2
+*.bin
+*.elf
+*.hex
+*.map
+
+# Toolchain / IDE
+.idea/
+.vscode/
+*.swp
+.DS_Store
+Thumbs.db
+
+# EasyEDA / EDA caches
+hardware/eda/**/History/
+hardware/eda/**/*.backup
+hardware/eda/**/*~
+*.lck
+
+# Python / node helpers
+__pycache__/
+.venv/
+node_modules/
+
+# Secrets / local notes
+.env
+.env.*
+!.env.example
+*.local.md
+
+# OS / temp
+*.tmp
+*.log
+.cache/
