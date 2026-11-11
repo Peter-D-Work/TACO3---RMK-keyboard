@@ -22,7 +22,7 @@
 | 示例 | `esp32_ble_split`（C6/C3）、`nrf52840_ble_split*`、`esp32s3_ble`；无官方 S3+nRF | 自建双工程 |
 | PMW3610 | 仅 nRF52/RP2040；半双工 SDIO；peripheral 配置可转发 | 右半匹配；MOSI=MISO=SDIO |
 | GC9A01 | `lcd_async` + 自定义彩色 renderer；toml SPI 显示会 panic | 走 Rust API；`firmware/ui` |
-| Sharp Memory LCD（nice!view） | 内置驱动列表无 Sharp（2026-11-11 查 Display 文档）；文档提供「Custom Display Drivers」：实现 `DrawTarget<BinaryColor>` + `DisplayDriver` | 右手自写驱动；从机侧可用 `central_connected` |
+| Sharp Memory LCD（nice!view） | 内置驱动列表无 Sharp（2026-11-11 查 Display 文档）；文档提供「Custom Display Drivers」：实现 `DrawTarget<BinaryColor>` + `DisplayDriver` | 右手自写驱动；从机侧可用 `battery` / `central_connected`；`keyboard.toml` SPI 显示会 panic → 右手工程走 Rust API；参考 `memory-lcd-spi`（MIT/Apache） |
 | RenderContext | layer、battery、ble_status、peripherals_connected、peripheral_batteries 等 | 状态页数据基本够用 |
 | 编码器 | central/peripheral 均可配；编号 central 先 | 按压键当矩阵/直连脚 |
 | 背光/RGB | LightAction 在 v0.9 基本 noop | 自定义 embassy/esp-hal PWM |

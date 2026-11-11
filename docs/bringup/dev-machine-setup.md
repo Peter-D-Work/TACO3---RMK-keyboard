@@ -53,6 +53,8 @@ probe-rs --version
 
 远程 Git：`origin` → `https://github.com/Peter-D-Work/TACO3---RMK-keyboard.git`（与根 `README.md` 一致）。
 
+网络：本机 git 全局代理为 `socks5://127.0.0.1:7890`。代理软件未运行时 `git push` / `cargo install` / `espup install` 会连不上 GitHub；先启动代理，或临时用 `git -c http.proxy= -c https.proxy=` 绕过。
+
 ## 3. 前置（已满足则可跳过）
 
 1. 安装 [Visual Studio Build Tools](https://visualstudio.microsoft.com/visual-cpp-build-tools/) 的 **Desktop development with C++**（MSVC ABI；espup / probe-rs 源码安装常用）。
@@ -103,6 +105,26 @@ probe-rs --version
 # irm https://github.com/probe-rs/probe-rs/releases/latest/download/probe-rs-tools-installer.ps1 | iex
 ```
 
+### 5.3 RMK nRF 构建链（UF2 产物）
+
+RMK 的 nRF52840 示例用 `flip-link` 做链接器，并通过 `cargo make uf2` 调用 `cargo-objcopy` 与 `cargo-hex-to-uf2` 生成 `.uf2`（见 RMK `examples/use_config/nrf52840_ble_split`）。
+
+```powershell
+cargo install flip-link --locked
+cargo install cargo-make --locked
+cargo install cargo-binutils --locked
+rustup component add llvm-tools
+cargo install cargo-hex-to-uf2 --locked
+```
+
+Adafruit / nice!nano 引导程序下 `memory.x` 的 FLASH 起始地址为 `0x00001000`（PD-121 建工程时核对）。
+
+### 5.4 工程生成器（可选）
+
+```powershell
+cargo install rmkit --locked
+```
+
 ### UF2（nice!nano 兼容板）
 
 1. 双击复位进入 UF2 盘符。
@@ -129,6 +151,11 @@ probe-rs --version
 | espflash | `espflash --version` | | | |
 | thumb target | `rustup target list --installed` | | | |
 | probe-rs | `probe-rs --version` | | | |
+| flip-link | `flip-link --version` | | | |
+| cargo-make | `cargo make --version` | | | |
+| cargo-binutils + llvm-tools | `cargo objcopy --version` | | | |
+| cargo-hex-to-uf2 | `cargo hex-to-uf2 --help` | | | |
+| rmkit（若用） | `rmkit --version` | | | |
 | UF2 工具（若用） | （自填） | | | |
 
 新克隆：`git clone https://github.com/Peter-D-Work/TACO3---RMK-keyboard.git` 后执行 `git lfs pull`。

@@ -35,10 +35,12 @@
 | 键矩阵 | rows+cols | |
 | 编码器 A/B + SW | 2–3 | |
 | PMW3610 | SCLK, SDIO, NCS, MOT，（NRESET 可选） | SDIO=MOSI=MISO；模组见 `pmw3610-module.md` |
-| nice!view | MOSI, SCK, CS = 3 | 只写 SPI；建议与 PMW3610 分开 SPI 外设；见 `nice-view.md` |
+| nice!view | MOSI, SCK, CS = 3 | 只写 SPI，独占引脚，不与 PMW3610 共线；CS 高有效；VCC 接常开 3.3 V；见 `nice-view.md` |
 | 逐键背光 SK6812 DIN | 1 | nRF52840 用 PWM/I2S 序列驱动 |
 | 背光电源使能 | 1 | SK6812 需 ≥ 3.7 V，**不能**用 P0.13 控制的 3.3 V VCC 供电 |
 | 电池 | VDDH 或 ADC 脚 | 克隆板分压可能未焊 |
+
+> 非矩阵外设约 11 根（PMW3610 4 + nice!view 3 + 编码器 2 + 背光 DIN 1 + 背光使能 1；PMW3610 NRESET 另计）。nice!nano 形态侧边排针 18 根 → 矩阵约 7 根；若中间 P1.01/P1.02/P1.07 可用则约 10 根。克隆板这 3 脚位置与 nice!nano 不同，且 P0.09/P0.10 为 NFC 脚需固件配置为 GPIO，均由 PD-119 / PD-120 核实。
 
 ## 电源预算（草案）
 
@@ -47,6 +49,6 @@
 | 左 3V3 | 板载 LDO 输出 | LDO 型号与负载余量待测 |
 | 左 5V 排针 | ≈ USB VBUS；电池供电时可能≈电池电压 | 不能当稳定 5V |
 | 左 B+/B− | 背面焊盘；充电 100/300 mA（BOOST） | 无保护板需外加；按无 Power Path 设计，实测转 PD-126 |
-| 右 3V3 / VCC | LDO；P0.13 可关外部负载 | 早期克隆漏电问题需按批次核实 |
+| 右 3V3 / VCC | LDO；P0.13 可关外部负载 | 早期克隆漏电问题需按批次核实；nice!view 需常开 3.3 V（VCOM 持续翻转），不接受控 VCC |
 | 两侧 SK6812 电源 | 3.7–5.5 V；不从 3V3 LDO 取电 | 锂电低电量低于下限；静态 1 mA/颗需负载开关；峰值 36 mA/颗需限亮度（PD-120） |
 | 续航 | 禁止无实测承诺小时数 | 记录 idle / 交互 / 熄屏 / 休眠电流 |

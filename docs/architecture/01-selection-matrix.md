@@ -11,7 +11,7 @@
 | RMK 版本基线 | 待核实 | 发布标签 `rmk-v0.9.0`；调研时 main=`84fd2e4…`（2026-11-10） | ESP32 电池 ADC 是否需 main | 选定 rev 上两侧构建 |
 | 分体通信 | 已确定 | BLE split | 地址/bonding 配置细节 | 休眠后重连、单侧按键唤醒 |
 | 左显示 | 已选型（卖家资料） | 1.28" **GC9A01** 240×240；**8 针带 BLK** 模块（GND/VCC/SCL/SDA/RES/DC/CS/BLK），36×44×2.7 mm，3–5 V；见 `hardware/interfaces/gc9a01-tft.md` | 排针针距、安装孔坐标 | SPI 时序、背光电流、与 BLE 并发 |
-| 右显示 | 已选型（卖家资料） | **nice!view**（Sharp LS011B7DH03 Memory LCD，1.08" 160×68，36×14×2.9 mm，3.3 V，<10 µA）；显示右手电量、连接状态；见 `hardware/interfaces/nice-view.md` | CS 有效电平、VCOM 翻转方式 | RMK 自定义 `DisplayDriver`（内置驱动不含 Sharp） |
+| 右显示 | 已选型（卖家资料） | **nice!view**（Sharp LS011B7DH03 Memory LCD，1.08" 160×68，36×14×2.9 mm，3.3 V，<10 µA）；显示右手电量、连接状态；见 `hardware/interfaces/nice-view.md` | 规格书 SPI 上限 / VCOM 频率；克隆模块 EXTMODE（CS 高有效、软件 VCOM 已由 ZMK 驱动证实） | RMK 自定义 `DisplayDriver`（内置驱动不含 Sharp）；VCOM 持续翻转下的电流（PD-135） |
 | UI 路线 | 已确定方向 | 自定义 RGB565 renderer；先状态页再菜单 | 帧缓冲放 SRAM 还是 PSRAM | 操作时局部动画 ~30fps 可否达成 |
 | 左旋钮 | 已确定 | 机械编码器 A/B + 按压 | 具体型号 | 消抖、按压并入矩阵/直连 |
 | 右轨迹球传感器 | 已选型（卖家资料） | `PMW3610-Module 20240425`：PMW3610DM-SUDU + **板载 2.0 V LDO**（VDD ≤ 6 V）；**VDDIO 不稳压、≤ 3.3 V**；圆形 Ø32 mm，镜头在背面；见 `hardware/interfaces/pmw3610-module.md` | 镜头型号、排针针距、安装孔 | CPI/延迟、光学距离 2.2–2.6 mm（含排母堆叠高度） |
