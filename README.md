@@ -4,10 +4,12 @@
 
 | 侧 | 主控板 | 固件角色 | 主要外设 |
 |---|---|---|---|
-| 左 | ESP32-S3 Super Mini（电池焊盘版） | RMK BLE **central** | 按键、旋钮（带按压）、1.28" GC9A01 圆屏、按键背光 |
-| 右 | nRF52840 开发板（nice!nano 兼容） | RMK BLE **peripheral** | 按键、旋钮、PMW3610 轨迹球、按键背光 |
+| 左 | ESP32-S3 Super Mini（电池焊盘版） | RMK BLE **central** | 按键、旋钮（带按压）、1.28" GC9A01 圆屏、逐键 RGB 背光 |
+| 右 | nRF52840 开发板（nice!nano 兼容） | RMK BLE **peripheral** | 按键、旋钮、PMW3610 轨迹球、逐键 RGB 背光 |
 
 左右独立电池；左手向电脑输出键盘 + 鼠标 HID。
+
+按键：Kailh 1350（Choc v1 矮轴）+ 1350 热插拔座；背光 SK6812 MINI-E。所有开发板/模块以排针插在我方 PCB 的排母上。
 
 ## 当前阶段
 
