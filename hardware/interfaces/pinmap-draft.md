@@ -35,6 +35,7 @@
 | 键矩阵 | rows+cols | |
 | 编码器 A/B + SW | 2–3 | |
 | PMW3610 | SCLK, SDIO, NCS, MOT，（NRESET 可选） | SDIO=MOSI=MISO；模组见 `pmw3610-module.md` |
+| nice!view | MOSI, SCK, CS = 3 | 只写 SPI；建议与 PMW3610 分开 SPI 外设；见 `nice-view.md` |
 | 逐键背光 SK6812 DIN | 1 | nRF52840 用 PWM/I2S 序列驱动 |
 | 背光电源使能 | 1 | SK6812 需 ≥ 3.7 V，**不能**用 P0.13 控制的 3.3 V VCC 供电 |
 | 电池 | VDDH 或 ADC 脚 | 克隆板分压可能未焊 |

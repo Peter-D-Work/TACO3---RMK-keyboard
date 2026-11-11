@@ -13,6 +13,7 @@
   RMK central                                  RMK peripheral
   matrix + encoder(+SW)                        matrix + encoder(+SW)
   GC9A01 SPI TFT (custom RGB565 renderer)      PMW3610 (3-wire SPI + MOTION)
+                                               nice!view Sharp memory LCD (battery / link status)
   per-key RGB SK6812 MINI-E (1-wire)           per-key RGB SK6812 MINI-E (1-wire)
   all modules on pin headers -> our PCB female sockets
   battery ADC + charger (board)                battery (VDDH or ADC) + charger
@@ -25,6 +26,7 @@
 | S3 central + nRF52 peripheral | **文档支持**；main 无官方混合示例 → **必须实机验证** | `02-rmk-evidence.md` |
 | 从机 PMW3610 事件转发 | **支持**（nRF52/RP2040；3-wire SDIO） | 同上 |
 | GC9A01 | **支持**，但需自定义彩色 `DisplayRenderer`；`keyboard.toml` SPI 显示会 panic | 同上 |
+| 右手 nice!view | 内置驱动**不含** Sharp Memory LCD；支持自定义 `DisplayDriver`；从机 `RenderContext` 有 battery / central_connected | 同上 |
 | 编码器两侧 | **支持**；peripheral 会转发 | 同上 |
 | 按键背光 / RGB | RMK v0.9 LightAction **基本 noop** → 自定义 SK6812 串行驱动（S3 RMT / nRF PWM 序列） | 同上 |
 | 双侧电量到 central | peripheral 电量可转发；ESP32 ADC 可能仅 main | 同上 |
