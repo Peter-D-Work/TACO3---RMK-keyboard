@@ -35,6 +35,7 @@
   - 原因：RMK PMW3610 驱动 `BitBangSpiBus::new(sck, sdio)` 独占两根脚；PMW3610 为 MSB 先发、CS 低有效，屏为 LSB 先发、CS 高有效。共线需自写互斥，收益只省 2 根脚。
 - nice!view 官方默认脚为 CS=P0.06、MOSI=P0.17、SCK=P0.20；Crosses 的 PMW3610 恰好用 P0.17/P0.20/P0.06。**不要照搬任一参考项目的脚位**，统一由 PD-120 分配。
 - 禁用：P0.13（VCC 开关）。电池检测若走 ADC 脚也要避开。
+- SCK / MOSI 必须放在右板 8 根高频脚上（nRF52840 其余脚限 ≤ 10 kHz），见 `nrf52840-promicro.md` §3。
 
 ## 电气 / 固件要点
 

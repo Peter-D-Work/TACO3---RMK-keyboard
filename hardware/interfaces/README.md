@@ -6,6 +6,7 @@
 |---|---|
 | `connectors.md` | 开发板/模块一律排针连接（模块焊公针、我方 PCB 放排母） |
 | `esp32-s3-super-mini.md` | 左主控板级事实与引脚分类 |
+| `nrf52840-promicro.md` | 右主控板级事实、可用 GPIO（高频 / 低频）、与 nice!nano v2 差异 |
 | `gc9a01-tft.md` | 1.28" GC9A01 圆屏模块 |
 | `pmw3610-module.md` | PMW3610 轨迹球传感器模组 |
 | `nice-view.md` | 右手 nice!view 状态屏（电量 / 连接状态） |

@@ -6,7 +6,7 @@
 |---|---|---|---|---|
 | 左主控板 | 资料级通过（M0） | ESP32-S3 Super Mini **电池版**；外形 **23.2×18.2 mm**；嘉立创 EDA 器件 `ESP32-S3-SuperMini`；**侧边 2×9 排针接主板**，背面触点待 PD-120 | 店铺批次链接 | 到货：板厚、USB 外伸、排针列距、背面照片 |
 | 左 MCU 型号 | 资料级 | **ESP32-S3FH4R2**（卖家图丝印 `FH4R2P3M4480`） | 到货批次是否一致 | `esptool` 读 flash/psram |
-| 右主控板 | 已确定方向 | nRF52840 **nice!nano 兼容** SuperMini/ProMicro 克隆；排针插接 | 当前批次充电 IC / LDO / 漏电路径 | UF2 是否预装、VCC_OFF(P0.13)、电池读数 |
+| 右主控板 | 已选型（卖家资料，PD-119） | **优信电子 nRF52840 ProMicro**（丝印 `V1940`），33×18 mm，每侧 13 孔（含 B+/B−），nice!nano v2 bootloader；可用 GPIO 21 根，其中高频仅 8 根；见 `hardware/interfaces/nrf52840-promicro.md` | 本批充电 IC / LDO 丝印、VCC 上拉阻值（漏电批次）、中间三脚坐标 | UF2 是否预装、VCC_OFF(P0.13)、电池读数 |
 | 固件 | 已确定 | 双侧 **RMK**；左 central、右 peripheral | 锁定 git rev（建议同 commit） | S3↔nRF 配对与重连 |
 | RMK 版本基线 | 待核实 | 发布标签 `rmk-v0.9.0`；调研时 main=`84fd2e4…`（2026-11-10） | ESP32 电池 ADC 是否需 main | 选定 rev 上两侧构建 |
 | 分体通信 | 已确定 | BLE split | 地址/bonding 配置细节 | 休眠后重连、单侧按键唤醒 |
@@ -20,7 +20,7 @@
 | 矩阵二极管 | 已确定 | **1N4148W**（贴片 SOD-123），每键 1 颗 | 矩阵方向 | — |
 | 按键背光 | 已确定 | **SK6812 MINI-E** 反贴逐键 RGB（替代原单色 LED + PWM） | LED 供电方式（电池直供 / 5V 升压）、电平转换、负载开关（PD-120） | VDD 3.7 V 下限 vs 锂电；静态 1 mA/颗；RMK 自定义驱动（PD-125） |
 | 电源-左 | 设计假设 | **按无 Power Path 设计**；5V 排针≈VBUS 不作稳定 5V；BOOST=充电电流 100→300 mA（非 5V 升压） | 充电 IC 丝印 | USB 插拔 5V/3V3/B+ 电压表；切换是否复位（PD-126） |
-| 电源-右 | 待核实 | 克隆板常见 TP4054/LTH7R + LDO；P0.13 可关外部 3V3 | 批次差异、电池分压是否焊接 | 漏电、充电终止 |
+| 电源-右 | 设计假设 | **按无 Power Path 设计**；同类板常见 TP4054/LTH7R + LDO；BOOST=充电 100→300 mA；P0.13 置低关 VCC；电池电压读 VDDH（USB 插入时≈5 V） | 本批充电 IC / LDO、分压是否焊接 | 漏电、充电终止、USB↔电池切换（PD-126） |
 | 电池容量 | 未定 | — | 壳体空间 | 按实测电流估算续航（不承诺未测小时数） |
 | PCB 策略 | 已确定 | 开发板插座 + 外设接口；不设计裸 MCU/射频 | 排母型号（标准 / 矮型） | 堆叠高度 |
 | 开发板连接 | 已确定 | **所有开发板/模块排针连接**：模块焊公针，我方 PCB 放排母；见 `hardware/interfaces/connectors.md` | — | 插拔可靠性、堆叠高度 |
